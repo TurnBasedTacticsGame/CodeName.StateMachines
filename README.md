@@ -1,4 +1,6 @@
-# UserInterface
+# UserInterface (Outdated)
+
+This was the documentation for Codename's state machine before any of the library code was created.
 
 ## State Machines
 
