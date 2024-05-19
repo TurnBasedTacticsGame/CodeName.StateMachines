@@ -1,4 +1,4 @@
-namespace CodeName.Core.Battles.StateMachines
+namespace CodeName.StateMachines
 {
     public interface ICapability
     {

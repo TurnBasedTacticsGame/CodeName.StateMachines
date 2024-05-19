@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Exanite.Core.Collections;
 
-namespace CodeName.Core.Battles.StateMachines
+namespace CodeName.StateMachines
 {
     public interface ICapabilityMachine<TCapability> where TCapability : ICapability
     {

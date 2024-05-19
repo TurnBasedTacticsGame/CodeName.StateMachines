@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace CodeName.Core.Battles.StateMachines
+namespace CodeName.StateMachines
 {
     public abstract class StateBehaviour : MonoBehaviour, IState
     {

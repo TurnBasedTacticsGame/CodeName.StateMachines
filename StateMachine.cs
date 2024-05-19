@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace CodeName.Core.Battles.StateMachines
+namespace CodeName.StateMachines
 {
     [Serializable]
     public class StateMachine<TState> : IStateMachine<TState> where TState : class, IState

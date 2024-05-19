@@ -1,6 +1,6 @@
 using UnityEngine.Pool;
 
-namespace CodeName.Core.Battles.StateMachines
+namespace CodeName.StateMachines
 {
     public static class CapabilityMachineUtility
     {

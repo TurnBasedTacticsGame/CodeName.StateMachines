@@ -4,7 +4,7 @@ using Exanite.Core.Collections;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace CodeName.Core.Battles.StateMachines
+namespace CodeName.StateMachines
 {
     [Serializable]
     public class KeyedStateMachine<TKey, TState> : StateMachine<TState>, IStateMachine<TKey, TState>, ISerializationCallbackReceiver where TState : class, IState

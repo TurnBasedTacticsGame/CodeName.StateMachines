@@ -1,6 +1,6 @@
 using System;
 
-namespace CodeName.Core.Battles.StateMachines
+namespace CodeName.StateMachines
 {
     public static class StateMachineUtility
     {

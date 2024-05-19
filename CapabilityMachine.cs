@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace CodeName.Core.Battles.StateMachines
+namespace CodeName.StateMachines
 {
     [Serializable]
     public class CapabilityMachine<TCapability> : ICapabilityMachine<TCapability> where TCapability : class, ICapability

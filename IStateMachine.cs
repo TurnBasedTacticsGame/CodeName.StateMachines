@@ -1,6 +1,6 @@
 using Exanite.Core.Collections;
 
-namespace CodeName.Core.Battles.StateMachines
+namespace CodeName.StateMachines
 {
     public interface IStateMachine<TState> where TState : IState
     {
