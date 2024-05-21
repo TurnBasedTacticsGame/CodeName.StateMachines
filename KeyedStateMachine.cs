@@ -51,7 +51,14 @@ namespace CodeName.StateMachines
             registeredStates.Clear();
             foreach (var entry in serializedRegisteredStates)
             {
-                registeredStates.Add(entry.Key, entry.State);
+                try
+                {
+                    registeredStates.Add(entry.Key, entry.State);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError(e);
+                }
             }
         }
 
