@@ -77,6 +77,11 @@ namespace CodeName.StateMachines
                 throw new ArgumentNullException(nameof(state));
             }
 
+            if (state == currentState)
+            {
+                return;
+            }
+
             var previousState = currentState;
             StateChanging?.Invoke(previousState, currentState);
 
