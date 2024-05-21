@@ -4,7 +4,6 @@ namespace CodeName.StateMachines
 {
     public interface IStateMachine<TState> where TState : IState
     {
-        public TState InitialState { get; set; }
         public TState DefaultState { get; set; }
         public TState CurrentState { get; }
 
