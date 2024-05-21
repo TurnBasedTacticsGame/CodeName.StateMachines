@@ -45,6 +45,12 @@ namespace CodeName.StateMachines
 
         public virtual void Initialize()
         {
+            Initialize(initialState);
+        }
+
+        public virtual void Initialize(TState initialState)
+        {
+            this.initialState = initialState;
             ForceSetState(initialState);
         }
 
