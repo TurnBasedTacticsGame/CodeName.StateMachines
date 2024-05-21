@@ -55,6 +55,10 @@ namespace CodeName.StateMachines
                 {
                     registeredStates.Add(entry.Key, entry.State);
                 }
+                catch (ArgumentNullException e)
+                {
+                    Debug.LogError($"Deserialized a null state with key '{entry.Key}': {e}");
+                }
                 catch (Exception e)
                 {
                     Debug.LogError(e);
