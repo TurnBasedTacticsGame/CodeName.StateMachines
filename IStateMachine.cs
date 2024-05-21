@@ -8,7 +8,16 @@ namespace CodeName.StateMachines
         public TState DefaultState { get; set; }
         public TState CurrentState { get; }
 
+        /// <summary>
+        /// Attempts to transition to the new <see cref="state"/>.
+        /// Returns true if the <see cref="CurrentState"/> was already set to <see cref="state"/>
+        /// or it was changed to <see cref="state"/>.
+        /// </summary>
         public bool TrySetState(TState state);
+
+        /// <summary>
+        /// Transitions to the new <see cref="state"/> without checking for <see cref="IState.CanEnterState"/> and <see cref="IState.CanExitState"/>.
+        /// </summary>
         public void ForceSetState(TState state);
 
         /// <summary>
