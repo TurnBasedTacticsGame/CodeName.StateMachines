@@ -50,16 +50,6 @@ namespace CodeName.StateMachines
             return machine.TrySetState(machine.DefaultState);
         }
 
-        public static void ForceSetDefaultState<TState>(this IStateMachine<TState> machine) where TState : IState
-        {
-            if (machine.DefaultState == null)
-            {
-                throw new InvalidOperationException("Cannot force set default state. State machine does not have a default state set");
-            }
-
-            machine.ForceSetState(machine.DefaultState);
-        }
-
         public static void AssertSetDefaultState<TState>(this IStateMachine<TState> machine) where TState : IState
         {
             if (machine.DefaultState == null)
@@ -68,6 +58,16 @@ namespace CodeName.StateMachines
             }
 
             machine.AssertSetState(machine.DefaultState);
+        }
+
+        public static void ForceSetDefaultState<TState>(this IStateMachine<TState> machine) where TState : IState
+        {
+            if (machine.DefaultState == null)
+            {
+                throw new InvalidOperationException("Cannot force set default state. State machine does not have a default state set");
+            }
+
+            machine.ForceSetState(machine.DefaultState);
         }
     }
 }
