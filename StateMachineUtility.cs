@@ -4,6 +4,34 @@ namespace CodeName.StateMachines
 {
     public static class StateMachineUtility
     {
+        public static TState AssertGetState<TKey, TState>(this IStateMachine<TKey, TState> machine, TKey key) where TState : IState
+        {
+            if (!machine.RegisteredStates.TryGetValue(key, out var state))
+            {
+                throw new InvalidOperationException("State is not registered");
+            }
+
+            return state;
+        }
+
+        public static bool TrySetState<TKey, TState>(this IStateMachine<TKey, TState> machine, TKey key) where TState : IState
+        {
+            return machine.TrySetState(machine.RegisteredStates[key]);
+        }
+
+        public static void AssertSetState<TKey, TState>(this IStateMachine<TKey, TState> machine, TKey key) where TState : IState
+        {
+            if (!machine.TrySetState(machine.RegisteredStates[key]))
+            {
+                throw new Exception("Failed to set state");
+            }
+        }
+
+        public static void ForceSetState<TKey, TState>(this IStateMachine<TKey, TState> machine, TKey key) where TState : IState
+        {
+            machine.ForceSetState(machine.RegisteredStates[key]);
+        }
+
         public static void AssertSetState<TState>(this IStateMachine<TState> machine, TState state) where TState : IState
         {
             if (!machine.TrySetState(state))
