@@ -47,7 +47,7 @@ namespace CodeName.StateMachines
             return false;
         }
 
-        public void EnableCapability(TCapability capability)
+        public virtual void EnableCapability(TCapability capability)
         {
             if (enabledCapabilities.Add(capability))
             {
@@ -55,7 +55,7 @@ namespace CodeName.StateMachines
             }
         }
 
-        public void DisableCapability(TCapability capability)
+        public virtual void DisableCapability(TCapability capability)
         {
             if (enabledCapabilities.Remove(capability))
             {
