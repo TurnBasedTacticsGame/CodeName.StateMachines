@@ -11,7 +11,8 @@ namespace CodeName.StateMachines
         public bool IsCapabilityEnabled<T>() where T : TCapability;
         public bool TryGetEnabledCapability<T>(out T capability) where T : TCapability;
 
-        public void SetCapability(TCapability capability, bool isEnabled);
+        public void EnableCapability(TCapability capability);
+        public void DisableCapability(TCapability capability);
     }
 
     public interface ICapabilityMachine<TKey, TCapability> : ICapabilityMachine<TCapability> where TCapability : ICapability

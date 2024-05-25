@@ -54,14 +54,16 @@ namespace CodeName.StateMachines
             }
         }
 
-        public static void EnableCapability<TCapability>(this ICapabilityMachine<TCapability> machine, TCapability capability) where TCapability : ICapability
+        public static void SetCapability<TCapability>(this ICapabilityMachine<TCapability> machine, TCapability capability, bool isEnabled) where TCapability : ICapability
         {
-            machine.SetCapability(capability, true);
-        }
-
-        public static void DisableCapability<TCapability>(this ICapabilityMachine<TCapability> machine, TCapability capability) where TCapability : ICapability
-        {
-            machine.SetCapability(capability, false);
+            if (isEnabled)
+            {
+                machine.EnableCapability(capability);
+            }
+            else
+            {
+                machine.DisableCapability(capability);
+            }
         }
     }
 }

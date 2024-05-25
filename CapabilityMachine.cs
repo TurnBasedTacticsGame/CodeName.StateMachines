@@ -47,21 +47,19 @@ namespace CodeName.StateMachines
             return false;
         }
 
-        public void SetCapability(TCapability capability, bool isEnabled)
+        public void EnableCapability(TCapability capability)
         {
-            if (isEnabled)
+            if (enabledCapabilities.Add(capability))
             {
-                if (enabledCapabilities.Add(capability))
-                {
-                    capability.OnEnableCapability();
-                }
+                capability.OnEnableCapability();
             }
-            else
+        }
+
+        public void DisableCapability(TCapability capability)
+        {
+            if (enabledCapabilities.Remove(capability))
             {
-                if (enabledCapabilities.Remove(capability))
-                {
-                    capability.OnDisableCapability();
-                }
+                capability.OnDisableCapability();
             }
         }
     }
