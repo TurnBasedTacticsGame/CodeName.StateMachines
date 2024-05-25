@@ -16,12 +16,12 @@ namespace CodeName.StateMachines
 
         public static bool TrySetState<TKey, TState>(this IStateMachine<TKey, TState> machine, TKey key) where TState : IState
         {
-            return machine.TrySetState(machine.RegisteredStates[key]);
+            return machine.TrySetState(machine.AssertGetState(key));
         }
 
         public static void AssertSetState<TKey, TState>(this IStateMachine<TKey, TState> machine, TKey key) where TState : IState
         {
-            if (!machine.TrySetState(machine.RegisteredStates[key]))
+            if (!machine.TrySetState(machine.AssertGetState(key)))
             {
                 throw new InvalidOperationException("Failed to set state");
             }
@@ -29,7 +29,7 @@ namespace CodeName.StateMachines
 
         public static void ForceSetState<TKey, TState>(this IStateMachine<TKey, TState> machine, TKey key) where TState : IState
         {
-            machine.ForceSetState(machine.RegisteredStates[key]);
+            machine.ForceSetState(machine.AssertGetState(key));
         }
 
         public static void AssertSetState<TState>(this IStateMachine<TState> machine, TState state) where TState : IState
