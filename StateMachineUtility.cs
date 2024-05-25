@@ -23,7 +23,7 @@ namespace CodeName.StateMachines
         {
             if (!machine.TrySetState(machine.RegisteredStates[key]))
             {
-                throw new Exception("Failed to set state");
+                throw new InvalidOperationException("Failed to set state");
             }
         }
 
@@ -36,7 +36,7 @@ namespace CodeName.StateMachines
         {
             if (!machine.TrySetState(state))
             {
-                throw new Exception("Failed to set state");
+                throw new InvalidOperationException("Failed to set state");
             }
         }
 
