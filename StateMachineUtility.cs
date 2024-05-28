@@ -34,7 +34,7 @@ namespace CodeName.StateMachines
         {
             if (machine.DefaultState == null)
             {
-                return false;
+                throw new InvalidOperationException("Cannot force set default state. State machine does not have a default state set");
             }
 
             return machine.TrySetState(machine.DefaultState);
