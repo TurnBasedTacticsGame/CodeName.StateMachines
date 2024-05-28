@@ -11,10 +11,7 @@ namespace CodeName.StateMachines
 
         public static void AssertSetState<TKey, TState>(this IStateMachine<TKey, TState> machine, TKey key) where TState : IState
         {
-            if (!machine.TrySetState(machine.RegisteredStates[key]))
-            {
-                throw new InvalidOperationException("Failed to set state");
-            }
+            machine.AssertSetState(machine.RegisteredStates[key]);
         }
 
         public static void ForceSetState<TKey, TState>(this IStateMachine<TKey, TState> machine, TKey key) where TState : IState
