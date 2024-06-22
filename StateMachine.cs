@@ -89,17 +89,17 @@ namespace CodeName.StateMachines
             }
 
             var previousState = currentState;
-            StateChanging?.Invoke(previousState, currentState);
+            StateChanging?.Invoke(previousState, state);
 
             if (previousState != null)
             {
                 previousState.OnExitState();
             }
-            StateChangeInProgress?.Invoke(previousState, currentState);
+            StateChangeInProgress?.Invoke(previousState, state);
 
             currentState = state;
             currentState.OnEnterState();
-            StateChanged?.Invoke(previousState, currentState);
+            StateChanged?.Invoke(previousState, state);
         }
     }
 }
